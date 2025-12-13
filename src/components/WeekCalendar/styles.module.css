@@ -1,0 +1,56 @@
+.main {
+  flex: 1;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 40px;
+  max-height: 100%;
+}
+.header {
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  padding: 10px 20px;
+}
+.dayCollum {
+  width: 80px;
+}
+.disheCollum {
+  width: 160px;
+  align-items: center;
+}
+.disheImg {
+  width: 100%;
+  height: 120px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.titleCollum {
+  flex: 1;
+}
+.weekRow {
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 20px;
+}
+.img {
+  max-width: 140px;
+  border-radius: 8px;
+}
+.calendar {
+  width: 100%;
+  overflow-y: scroll;
+}
+.titleText {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.infoText {
+  font-weight: bold;
+  text-align: center;
+  color: #0f0f0f;
+}

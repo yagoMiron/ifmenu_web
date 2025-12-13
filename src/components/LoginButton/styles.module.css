@@ -1,0 +1,22 @@
+.btn {
+  flex-direction: row;
+  background-color: #fefefe;
+  margin-top: 20px;
+  margin-bottom: 32px;
+  border-width: 2px;
+  border-color: #afafaf;
+  border-radius: 10px;
+  padding: 16px;
+  gap: 16px;
+  align-items: center;
+}
+.btn_img {
+  height: 28px;
+  width: 28px;
+}
+.btnText {
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+  color: #0f0f0f;
+}

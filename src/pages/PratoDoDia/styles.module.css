@@ -1,0 +1,68 @@
+.container {
+  width: 100%;
+  flex: 1;
+  height: 100%;
+  align-items: center;
+}
+.main {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  padding: 40px 0;
+  align-items: center;
+}
+.text {
+  font-weight: bold;
+  font-size: 28px;
+  padding: 12px;
+  text-align: center;
+  color: #31c51e;
+}
+.section {
+  width: 90%;
+  max-width: 600px;
+}
+.pratoDoDia {
+  border-radius: 40px;
+  border-bottom-width: 4px;
+  border-right-width: 4px;
+  border-color: #00000097;
+  width: 100%;
+  align-items: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.disheImg {
+  border-top-left-radius: 38px;
+  border-top-right-radius: 38px;
+  width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.dishe_title {
+  font-size: 28px;
+  font-weight: bold;
+  padding: 10px 20px;
+  width: 100%;
+}
+.dishe_description {
+  font-size: 20px;
+  padding: 0 28px 30px 28px;
+}
+.rating_section {
+  flex-direction: row;
+  width: 84%;
+  padding-bottom: 20px;
+  align-items: center;
+}
+.fav_btn {
+  height: 42px;
+  width: 42px;
+  position: relative;
+  top: 60px;
+  left: 90%;
+  background-color: transparent;
+  border: none;
+  z-index: 3;
+  padding: 0;
+}

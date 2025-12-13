@@ -1,0 +1,59 @@
+.container {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.main {
+  align-items: center;
+  width: 80%;
+  max-width: 420px;
+  border-radius: 20px;
+  min-height: 50%;
+}
+.titlebox {
+  align-items: center;
+  flex-direction: row;
+}
+.title {
+  font-size: 26px;
+  font-weight: bold;
+  font-family: "Schoolbell";
+  font-style: italic;
+}
+.subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Schoolbell";
+  font-style: italic;
+  width: 100%;
+}
+.error {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: "Schoolbell";
+  width: 100%;
+}
+.logo {
+  border-radius: 50%;
+  position: relative;
+  top: -84px;
+  padding: 10px 2px;
+  height: 160px;
+  align-items: center;
+  width: 160px;
+}
+.invalidLogin {
+  color: red;
+}
+.offset {
+  position: relative;
+  top: -120px;
+  width: 90%;
+  gap: 10px;
+}
+.dot {
+  padding: 4px 20px 4px 0;
+}

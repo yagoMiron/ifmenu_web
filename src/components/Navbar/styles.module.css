@@ -1,0 +1,12 @@
+.bar {
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: "100%";
+  background-color: #666;
+}
+.btn {
+  padding: 12px;
+}
+.icon {
+  height: 32px;
+}

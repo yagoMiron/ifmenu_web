@@ -1,0 +1,70 @@
+.container {
+  padding: 24px;
+  width: 100%;
+  margin: 0 8px;
+}
+.bubble {
+  max-width: 80%;
+  padding: 10px;
+  border-radius: 12px;
+  position: relative;
+  border-width: 2px;
+  border-color: #ccc;
+}
+.text {
+  font-size: 16px;
+}
+
+.triangleBorderLeft {
+  position: absolute;
+  left: -12px;
+  top: 12px;
+  width: 0;
+  height: 0;
+  border: 8px 0px 8px 13px;
+  border-style: solid;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: #ccc;
+}
+.triangleLeft {
+  position: absolute;
+  left: -9px;
+  top: 13px;
+  width: 0px;
+  height: 0px;
+  border-top-width: 7px;
+  border-bottom-width: 7px;
+  border-right-width: 11px;
+  border-style: solid;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.triangleBorderRight {
+  position: absolute;
+  right: -15px;
+  top: 12px;
+  width: 0;
+  height: 0;
+  border-top-width: 8px;
+  border-bottom-width: 8px;
+  border-left-width: 13px;
+  border-style: solid;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: #ccc;
+}
+.triangleRight {
+  position: absolute;
+  right: -10px;
+  top: 13px;
+  width: 0;
+  height: 0;
+  border-top-width: 7px;
+  border-bottom-width: 7px;
+  border-left-width: 11px;
+  border-style: solid;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+}

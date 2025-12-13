@@ -1,0 +1,153 @@
+import { useContext, useEffect, useState } from "react";
+
+import { UserContext } from "../../context/UserContext";
+import styles from "./styles.module.css";
+import { Comment } from "react-loader-spinner";
+import Colors from "../../enums/colors";
+import deleteFavoritos from "../../services/deleteFavoritos";
+import postFavoritos from "../../services/postFavoritos";
+import getAvaliacao from "../../services/getAvaliacao";
+import getPrato from "../../services/getPrato";
+import postAvaliacao from "../../services/postAvaliacao";
+import RateBtn from "../../components/RateButton";
+import Separator from "../../components/Separator";
+import star from "../../assets/star.svg";
+import empty_star from "../../assets/star_empty.svg";
+import type { Prato } from "../../types/Prato";
+
+const Plate = () => {
+  const { theme, token } = useContext(UserContext);
+  const [avaliacao, setAvaliacao] = useState(0);
+  const [fav, setFav] = useState(false);
+  const [pratoDoDia, setPrato] = useState<Prato | null>(null);
+
+  const backgroundColor = theme === "dark" ? Colors.BG_DARK : Colors.BG_LIGHT;
+  const fontColor = theme === "dark" ? Colors.FONT_DARK : Colors.FONT_LIGHT;
+
+  const avaliar = (avaliacao: number) => {
+    if (!pratoDoDia) {
+      return;
+    }
+    setAvaliacao(avaliacao);
+    postAvaliacao({
+      id: pratoDoDia.id,
+      token: token,
+      avaliacao: avaliacao,
+    });
+  };
+
+  useEffect(() => {
+    (async () => {
+      const prato = await getPrato(token);
+      setPrato({
+        id: prato._id,
+        nome: prato.nome,
+        descricao: prato.descricao,
+        imagem: prato.imagem,
+        favoritado: prato.favoritado,
+      });
+      const avaliacao = await getAvaliacao({
+        id: prato._id,
+        token: token,
+      });
+      setAvaliacao(avaliacao);
+
+      setFav(prato.favoritado);
+    })();
+  }, []);
+  return (
+    <div className={styles.main}>
+      {pratoDoDia ? (
+        <div className={styles.section}>
+          <button
+            className={styles.fav_btn}
+            onClick={() => {
+              if (fav === true) {
+                deleteFavoritos({
+                  pratoId: pratoDoDia.id,
+                  token: token,
+                });
+                setFav(false);
+              } else {
+                postFavoritos({
+                  pratoId: pratoDoDia.id,
+                  token: token,
+                });
+                setFav(true);
+              }
+            }}
+          >
+            {avaliacao > 3 &&
+              (fav ? (
+                <img src={star} className={styles.imgStar} alt="favoritar" />
+              ) : (
+                <img
+                  src={empty_star}
+                  className={styles.imgStar}
+                  alt="desfavoritar"
+                />
+              ))}
+          </button>
+          <div
+            className={styles.pratoDoDia}
+            style={{
+              backgroundColor: backgroundColor,
+            }}
+          >
+            <div>
+              <img
+                src={pratoDoDia?.imagem ? pratoDoDia.imagem : ""}
+                className={styles.disheImg}
+              />
+            </div>
+            <h2
+              className={styles.dishe_title}
+              style={{
+                color: theme === "dark" ? Colors.FONT_DARK : Colors.FONT_LIGHT,
+              }}
+            >
+              {pratoDoDia?.nome}
+            </h2>
+            <p
+              className={styles.dishe_description}
+              style={{
+                color: fontColor,
+              }}
+            >
+              {pratoDoDia?.descricao}
+            </p>
+            <Separator title="Avalie o Prato!" />
+            <div className={styles.rating_section}>
+              <RateBtn emogiValue={1} rate={avaliacao} setAvaliacao={avaliar} />
+              <RateBtn emogiValue={2} rate={avaliacao} setAvaliacao={avaliar} />
+              <RateBtn emogiValue={3} rate={avaliacao} setAvaliacao={avaliar} />
+              <RateBtn emogiValue={4} rate={avaliacao} setAvaliacao={avaliar} />
+              <RateBtn emogiValue={5} rate={avaliacao} setAvaliacao={avaliar} />
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div
+          style={{
+            height: "100%",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Comment
+            visible={true}
+            height="120"
+            width="120"
+            ariaLabel="comment-loading"
+            wrapperStyle={{}}
+            wrapperClass="comment-wrapper"
+            color="#0f0f0f"
+            backgroundColor="#52cc62"
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Plate;

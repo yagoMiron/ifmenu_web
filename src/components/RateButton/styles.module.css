@@ -1,0 +1,25 @@
+.ratingBtn {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+}
+
+.rating_img {
+  max-width: 200px;
+  min-height: 90px;
+  max-height: 200px;
+  width: 100%;
+  object-fit: contain;
+  transition: all 0.5s ease;
+  opacity: 0.3;
+}
+.rating_img:hover {
+  width: 100%;
+  opacity: 1;
+}
+.title {
+  font-weight: bold;
+}

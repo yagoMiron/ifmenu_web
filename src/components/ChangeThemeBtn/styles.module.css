@@ -1,0 +1,9 @@
+.themeButton {
+  align-items: center;
+  border-width: 1px;
+  border-color: #4e4e4e;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
