@@ -1,0 +1,20 @@
+.main {
+  align-items: center;
+  width: 80%;
+  max-width: 420px;
+  gap: 32px;
+}
+.returnBtn {
+  padding: 12px 32px;
+  background-color: #ccc;
+  border-radius: 24px;
+  color: black;
+  font-weight: bold;
+  box-shadow: rgba(241, 241, 241, 0.35) 1px 2px 0px;
+  border: black 1px solid;
+  transition: all 0.5s ease;
+}
+.returnBtn:hover {
+  background-color: #eee;
+  padding: 12px 36px;
+}

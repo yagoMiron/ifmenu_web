@@ -54,7 +54,7 @@ const Plate = () => {
 
       setFav(prato.favoritado);
     })();
-  }, []);
+  }, [token]);
   return (
     <div className={styles.main}>
       {pratoDoDia ? (
@@ -103,7 +103,7 @@ const Plate = () => {
             <h2
               className={styles.dishe_title}
               style={{
-                color: theme === "dark" ? Colors.FONT_DARK : Colors.FONT_LIGHT,
+                color: fontColor,
               }}
             >
               {pratoDoDia?.nome}

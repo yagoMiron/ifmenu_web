@@ -60,7 +60,8 @@
   width: 42px;
   position: relative;
   top: 60px;
-  left: 90%;
+  align-self: flex-end;
+  right: 10px;
   background-color: transparent;
   border: none;
   z-index: 3;

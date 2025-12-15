@@ -2,39 +2,43 @@ import { useContext } from "react";
 import dishe from "../../assets/strogonof.jpg";
 import { UserContext } from "../../context/UserContext";
 import styles from "./styles.module.css";
+
+const hoje = new Date();
+const diaEmMillisegundos = 24 * 60 * 60 * 1000;
+
 const data = [
   {
-    dia: new Date("2025-10-19T03:24:00"),
+    dia: hoje,
     seraServido: false,
     nome: "-",
   },
   {
-    dia: new Date("2025-10-20T03:24:00"),
+    dia: new Date(hoje.getTime() + diaEmMillisegundos),
     seraServido: true,
     nome: "Strogonof",
   },
   {
-    dia: new Date("2025-10-21T03:24:00"),
+    dia: new Date(hoje.getTime() + diaEmMillisegundos * 2),
     seraServido: true,
     nome: "Strogonof",
   },
   {
-    dia: new Date("2025-10-22T03:24:00"),
+    dia: new Date(hoje.getTime() + diaEmMillisegundos * 3),
     seraServido: true,
     nome: "Strogonof",
   },
   {
-    dia: new Date("2025-10-23T03:24:00"),
+    dia: new Date(hoje.getTime() + diaEmMillisegundos * 4),
     seraServido: true,
     nome: "Strogonof",
   },
   {
-    dia: new Date("2025-10-24T03:24:00"),
+    dia: new Date(hoje.getTime() + diaEmMillisegundos * 5),
     seraServido: true,
     nome: "Strogonof",
   },
   {
-    dia: new Date("2025-10-25T03:24:00"),
+    dia: new Date(hoje.getTime() + diaEmMillisegundos * 6),
     seraServido: false,
     nome: "-",
   },

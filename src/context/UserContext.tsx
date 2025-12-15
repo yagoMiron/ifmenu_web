@@ -75,7 +75,6 @@ export const UserContextProvider = ({ children }: UserContextProps) => {
         isSessionValid: () => {
           const timestamp = new Date().getTime();
           const diff = exp - timestamp;
-          return true;
           return diff > 0;
         },
       }}

@@ -18,7 +18,7 @@ const Header = () => {
         backgroundColor: theme === "dark" ? Colors.BG_DARK : Colors.BG_LIGHT,
       }}
     >
-      <Link to={"/login"}>
+      <Link to={"/logout"}>
         {theme === "dark" ? (
           <img
             className={styles.icon}

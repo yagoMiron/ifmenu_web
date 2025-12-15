@@ -3,7 +3,6 @@ import ChangeThemeBtn from "../../components/ChangeThemeBtn";
 import Colors from "../../enums/colors";
 import Separator from "../../components/Separator";
 import LoginButton from "../../components/LoginButton";
-import { UserContext } from "../../context/UserContext";
 import dot_dark from "../../assets/dot_dark.svg";
 import dot_light from "../../assets/dot_light.svg";
 import dot_error from "../../assets/dot_error.svg";
@@ -11,17 +10,28 @@ import dot_error from "../../assets/dot_error.svg";
 import logo from "../../assets/menu2.svg";
 import styles from "./styles.module.css";
 import ImageBackground from "../../components/ImageBackground";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 
 const TelaInicial = () => {
-  const { theme } = useContext(UserContext);
+  const navigate = useNavigate();
+  const { theme, isSessionValid } = useContext(UserContext);
   const [erro, setErro] = useState("");
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const error = params.get("error");
-    if (error) {
-      setErro(error);
+    if (isSessionValid()) {
+      navigate("/home");
     }
+  });
+  useEffect(() => {
+    const verificaErro = async () => {
+      const params = new URLSearchParams(window.location.search);
+      const error = params.get("error");
+      if (error) {
+        setErro(error);
+      }
+    };
+    verificaErro();
   }, []);
 
   const backgroundColor = theme === "dark" ? Colors.BG_DARK : Colors.BG_LIGHT;
@@ -114,9 +124,7 @@ const TelaInicial = () => {
         <Separator title="Login" />
         <LoginButton />
       </div>
-      <ChangeThemeBtn
-        extraStyles={{ position: "absolute", top: 10, right: 10 }}
-      />
+      <ChangeThemeBtn fixed />
     </ImageBackground>
   );
 };

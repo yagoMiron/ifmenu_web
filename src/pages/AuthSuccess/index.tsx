@@ -14,8 +14,7 @@ export default function AuthSuccess() {
     const token = params.get("token");
     const user = params.get("user");
 
-    if (!token || !user) {
-      navigate("/login");
+    if (!(token && user)) {
       return;
     }
 
@@ -32,13 +31,13 @@ export default function AuthSuccess() {
     setName(name);
     setEmail(email);
 
-    const dataExp = new Date().getTime(); // Pega a data atual
-    setAuthTime(dataExp);
-    setExp(dataExp + 7 * 24 + 60 + 60 + 1000); // Adiciona 7 dias
+    const timestamp = new Date().getTime();
+    setAuthTime(timestamp);
+    setExp(timestamp + 7 * 24 * 60 * 60 * 1000); // Adiciona 7 dias
 
     // redirecionar
     navigate("/home");
-  }, []);
+  });
 
   return <p>Carregando...</p>;
 }

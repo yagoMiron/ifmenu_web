@@ -7,7 +7,12 @@ type Props = {
 
 const Advice = ({ message, severity }: Props) => {
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{
+        backgroundColor: severity === "grave" ? "red" : "#ff5c4a",
+      }}
+    >
       <span>{message}</span>
     </div>
   );

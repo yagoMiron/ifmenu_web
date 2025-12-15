@@ -5,23 +5,22 @@ import dark_mode from "../../assets/dark_mode.svg";
 import light_mode from "../../assets/light_mode.svg";
 
 type Props = {
-  extraStyles?: any;
+  fixed?: boolean;
 };
 
-const ChangeThemeBtn = ({ extraStyles }: Props) => {
+const ChangeThemeBtn = ({ fixed }: Props) => {
   const { setTheme, theme } = useContext(UserContext);
   const toChangeTheme = () => {
     const nextTheme = theme === "dark" ? "light" : "dark";
     setTheme(nextTheme);
   };
-
+  const extraStyles: React.CSSProperties = fixed
+    ? { position: "absolute", top: 10, right: 10, backgroundColor: "#f0f0f0" }
+    : { backgroundColor: "#f0f0f0" };
   return (
     <button
       className={styles.themeButton}
-      style={{
-        ...extraStyles,
-        backgroundColor: "#f0f0f0",
-      }}
+      style={extraStyles}
       onClick={toChangeTheme}
     >
       <img
