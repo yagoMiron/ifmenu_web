@@ -1,4 +1,4 @@
-const URL_API = "https://apiifmenu-production.up.railway.app";
+const URL_API = import.meta.env.VITE_API_URL;
 import axios from "axios";
 
 const getFavoritoById = async (token: string, prato_id: string) => {

@@ -1,7 +1,7 @@
 import google from "../../assets/google.png";
 import styles from "./styles.module.css";
 
-const API_URL = "https://apiifmenu-production.up.railway.app";
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function LoginButton() {
   const loginWithGoogle = async () => {
