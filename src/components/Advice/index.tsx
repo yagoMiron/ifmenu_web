@@ -1,3 +1,5 @@
+// componente não implementado
+
 import styles from "./styles.module.css";
 
 type Props = {
